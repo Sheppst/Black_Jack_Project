@@ -9,6 +9,8 @@ screen = pygame.display.set_mode((1000, 700))
 background = pygame.image.load('./asset/Fond vert.jpg')
 background1 = pygame.image.load(
     './asset/cadre blanc.png')
+surf1 = pygame.image.load(
+    './asset/1.png')
 
 reserve = [[], []]
 hand = []
@@ -19,6 +21,7 @@ while running:
 
     screen.blit(background, (-100, 0))
     screen.blit(background1, (80, 500))
+    screen.blit(surf1, (5, 5))
 
     screen.blit(game.player.image, game.player.rect)
 
@@ -36,7 +39,6 @@ while running:
             b = b + 1"""
         player.replace()
 
-
     game.all_players.draw(screen)
 
     """if game.check_collision(game, game.all_players):
@@ -51,7 +53,6 @@ while running:
             print("Fermeture du jeu")
         """elif event.key == pygame.K_SPACE:
             game.new_card()"""
-
 
         """elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
