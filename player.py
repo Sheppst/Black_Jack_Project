@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.game = game
         self.all_cards = pygame.sprite.Group()
         self.image = pygame.image.load(
-            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/Barre de positionement_noir.png')
+            './asset/Barre de positionement_noir.png')
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 540

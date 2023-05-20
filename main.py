@@ -6,9 +6,9 @@ pygame.init()
 pygame.display.set_caption("Black Jack")
 screen = pygame.display.set_mode((1000, 700))
 
-background = pygame.image.load('C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/Fond vert.jpg')
+background = pygame.image.load('./asset/Fond vert.jpg')
 background1 = pygame.image.load(
-    'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/cadre blanc.png')
+    './asset/cadre blanc.png')
 
 reserve = [[], []]
 hand = []

@@ -12,7 +12,7 @@ class Card(pygame.sprite.Sprite):
         self.hand = []
         self.count_hand = 0
         self.image = pygame.image.load(
-            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/Pique.png')
+            './asset/Pique.png')
         """self.image2 = pygame.image.load(
             'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/1.png')"""
 
