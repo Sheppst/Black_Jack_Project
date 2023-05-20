@@ -7,12 +7,13 @@ screen = pygame.display.set_mode((1000, 700))
 class Card(pygame.sprite.Sprite):
     # Creates a card with color and value at screen position
     def __init__(self, color, value, x=100, y=540):
+        super().__init__()
         self.color = pygame.image.load(color)
         self.value = pygame.image.load(value)
         self.x = x
         self.y = y
 
-    def __init__(self, game):
+    """def __init__(self, game):
         super().__init__()
         self.game = game
         self.player = Player(self)
@@ -21,19 +22,19 @@ class Card(pygame.sprite.Sprite):
         self.count_hand = 0
         self.image = pygame.image.load(
             './asset/Pique.png')
-        """self.image2 = pygame.image.load(
-            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/1.png')"""
+        self.image2 = pygame.image.load(
+            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/1.png')
 
         self.rect = self.image.get_rect()
         self.rect.x = self.player.rect.x
         self.rect.y = 540
-        self.velocity = 1
+        self.velocity = 1"""
 
-    def card_selection(self, a, b):
+    """def card_selection(self, a, b):
         self.image1 = pygame.image.load(
             'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/' + 'a')
         self.image2 = pygame.image.load(
-            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/' + 'b')
+            'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/' + 'b')"""
 
     def init_card_drawing(self, carte):
         cartes = {}
