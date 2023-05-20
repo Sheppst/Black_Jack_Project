@@ -1,5 +1,6 @@
 import pygame
 from black_jack import Black_Jack
+from card import Card
 
 pygame.init()
 
@@ -15,7 +16,8 @@ surf1 = pygame.image.load(
 reserve = [[], []]
 hand = []
 game = Black_Jack()
-
+x = 100
+y = 540
 running = True
 while running:
 
@@ -51,8 +53,14 @@ while running:
             running = False
             pygame.quit()
             print("Fermeture du jeu")
-        """elif event.key == pygame.K_SPACE:
-            game.new_card()"""
+        elif event.key == pygame.K_SPACE:
+            cartes = ["1P"]
+            carte = Card(None, None, x, y)
+            carte.init_card_drawing()
+            carte.new_card()
+            x += 102
+
+            game.new_card()
 
         """elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
