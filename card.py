@@ -8,8 +8,8 @@ class Card(pygame.sprite.Sprite):
     # Creates a card with color and value at screen position
     def __init__(self, color, value, x=100, y=540):
         super().__init__()
-        self.color = pygame.image.load(color)
-        self.value = pygame.image.load(value)
+        self.color = color
+        self.value = value
         self.x = x
         self.y = y
 
@@ -37,9 +37,26 @@ class Card(pygame.sprite.Sprite):
             'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/' + 'b')"""
 
     def init_card_drawing(self, carte):
-        cartes = {}
-        self.color = cartes[carte[-1]]
-        self.value = cartes[carte[:-1]]
+        cartes = {
+            'C': './asset/Coeur.png',
+            'CA': './asset/Coeur.png',
+            'T': './asset/Coeur.png',
+            'P': './asset/Pique.png',
+            '1': './asset/1.png',
+            '2': './asset/2.png',
+            '3': './asset/3.png',
+            '4': './asset/4.png',
+            '5': './asset/5.png',
+            '6': './asset/6.png',
+            '7': './asset/7.png',
+            '8': './asset/8.png',
+            '9': './asset/9.png',
+            '10': './asset/10.png',
+            '11': './asset/J.png',
+            '12': './asset/Q.png',
+            '13': './asset/K.png', }
+        self.color = cartes[str(carte[0])]
+        self.value = cartes[carte[1]]
 
     def new_card(self):
         color = self.color

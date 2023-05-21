@@ -12,18 +12,18 @@ class Black_Jack:
         self.all_players.add(self.player)
         self.all_card = pygame.sprite.Group()
         self.pressed = {}
-        self.draw_card()
+        """self.draw_card()"""
         self.position_carte = 0
         self.know_player()
 
     def check_collision(self, sprite, group):
         return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
 
-    def draw_card(self):
+    """def draw_card(self):
         carte = Card(self)
         self.position_carte = carte.rect.width
-        self.all_card.add(carte)
-        """print(carte.rect.x)"""
+        self.all_card.add(carte)"""
+    """print(carte.rect.x)"""
 
     """def check_card(self):
         carte = Card(self)
@@ -32,11 +32,11 @@ class Black_Jack:
             b += 1
             return b"""
 
-    def new_card(self):
+    """def new_card(self):
         carte = Card(self)
         a = "Pique"
         b = "1"
-        return carte.card_selection(a, b)
+        return carte.card_selection(a, b)"""
 
     def know_player(self):
         joueur = Player(self)

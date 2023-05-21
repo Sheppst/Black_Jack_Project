@@ -1,6 +1,11 @@
 import pygame
 from black_jack import Black_Jack
 from card import Card
+cartes = []
+nom = ["C", "Ca", "T", "P"]
+for i in range(4):
+    for j in range(1, 14):
+        cartes.append((j, nom[i]))
 
 pygame.init()
 
@@ -27,10 +32,10 @@ while running:
 
     screen.blit(game.player.image, game.player.rect)
 
-    for card in game.all_card:
-        """card.go_to_hand()"""
-        """print(card.rect.x)"""
-    game.all_card.draw(screen)
+    """for card in game.all_card:
+        card.go_to_hand()
+        print(card.rect.x)
+    game.all_card.draw(screen)"""
     """game.player.rect.x += game.all_card.rect.x"""
     """print(game.player.rect.x)"""
     for player in game.all_players:
@@ -39,7 +44,7 @@ while running:
         if game.check_card() == b:
             print(a + 1)
             b = b + 1"""
-        player.replace()
+        """player.replace()"""
 
     game.all_players.draw(screen)
 
@@ -53,12 +58,13 @@ while running:
             running = False
             pygame.quit()
             print("Fermeture du jeu")
-        elif event.key == pygame.K_SPACE:
-            cartes = ["1P"]
-            carte = Card(None, None, x, y)
-            carte.init_card_drawing()
-            carte.new_card()
-            x += 102
+        elif event.type == pygame.KEYDOWN:
+            game.pressed[event.key] = True
+            if event.key == pygame.K_SPACE:
+                carte = Card(pygame.image.load('./asset/Vide.png'), pygame.image.load('./asset/Vide.png'), x, y)
+                carte.init_card_drawing(cartes[0])
+                carte.new_card()
+                x += 102
 
             game.new_card()
 
