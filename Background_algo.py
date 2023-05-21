@@ -1,11 +1,10 @@
+from random import randint
+
 cartes = []
 nom = ["C", "Ca", "T", "P"]
 for i in range(4):
     for j in range(1, 14):
         cartes.append((j, nom[i]))
-
-from random import randint
-
 
 class Jeu:
 
