@@ -6,6 +6,7 @@ for i in range(4):
     for j in range(1, 14):
         cartes.append((j, nom[i]))
 
+
 class Jeu:
 
     def __init__(self, Joueur):
