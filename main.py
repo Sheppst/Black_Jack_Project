@@ -1,6 +1,7 @@
 import pygame
 from black_jack import Black_Jack
 from card import Card
+
 cartes = []
 nom = ["C", "Ca", "T", "P"]
 for i in range(4):
@@ -17,20 +18,28 @@ background1 = pygame.image.load(
     './asset/cadre blanc.png')
 surf1 = pygame.image.load(
     './asset/1.png')
-
-reserve = [[], []]
+reserve = []
+nom = ["C", "Ca", "T", "P"]
+for i in range(4):
+    for j in range(1, 14):
+        reserve.append((Card(nom[i], str(j))))
 hand = []
 game = Black_Jack()
-x = 100
-y = 540
 running = True
 while running:
+    # Display
 
     screen.blit(background, (-100, 0))
     screen.blit(background1, (80, 500))
     screen.blit(surf1, (5, 5))
 
-    screen.blit(game.player.image, game.player.rect)
+    """screen.blit(game.player.image, game.player.rect)"""
+    # affichage des cartes de la main du joueur
+    x = 100
+    y = 540
+    for each_card in hand:
+        screen.blit(each_card.image, (x, y))
+        x += 100
 
     """for card in game.all_card:
         card.go_to_hand()
@@ -38,15 +47,16 @@ while running:
     game.all_card.draw(screen)"""
     """game.player.rect.x += game.all_card.rect.x"""
     """print(game.player.rect.x)"""
-    for player in game.all_players:
-        """b = 1
+    """for player in game.all_players:
+        b = 1
         a = 0
         if game.check_card() == b:
             print(a + 1)
-            b = b + 1"""
-        """player.replace()"""
+            b = b + 1
+        player.replace()
 
-    game.all_players.draw(screen)
+
+    game.all_players.draw(screen)"""
 
     """if game.check_collision(game, game.all_players):
         print ("collision")"""
@@ -61,12 +71,10 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
             if event.key == pygame.K_SPACE:
-                carte = Card(x, y)
-                carte.init_card_drawing(cartes[0])
-                color, value = carte.new_card()
-                card = color.copy()
-                card.blit(value, (x, y))
-                x += 102
+                carte = Card('P', '13', x, y)
+                hand.append(carte)
+            elif event.key == pygame.K_b:
+                hand = []
 
         """elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True

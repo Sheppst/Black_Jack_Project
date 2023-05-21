@@ -1,17 +1,20 @@
 import pygame
-from player import Player
+"""from player import Player"""
 
 screen = pygame.display.set_mode((1000, 700))
 
 
 class Card(pygame.sprite.Sprite):
     # Creates a card with color and value at screen position
-    def __init__(self, x=100, y=540, color='./asset/Vide.png', value='./asset/Vide.png'):
+    def __init__(self,  color='n', value='n', x=100, y=540,):
         super().__init__()
-        self.color = pygame.image.load(color)
-        self.value = pygame.image.load(value)
+        self.image = None
+        self.color = color #pygame.image.load(color)
+        self.value = value #pygame.image.load(value)
         self.x = x
         self.y = y
+
+        self.init_card_drawing()
 
     """def __init__(self, game):
         super().__init__()
@@ -36,10 +39,10 @@ class Card(pygame.sprite.Sprite):
         self.image2 = pygame.image.load(
             'C:/Users/Antoine Yon/Documents/Travail/NSI/Projet/' + 'b')"""
 
-    def init_card_drawing(self, carte):
+    def init_card_drawing(self):
         cartes = {
             'C': './asset/Coeur.png',
-            'CA': './asset/Coeur.png',
+            'Ca': './asset/Coeur.png',
             'T': './asset/Coeur.png',
             'P': './asset/Pique.png',
             '1': './asset/1.png',
@@ -54,14 +57,19 @@ class Card(pygame.sprite.Sprite):
             '10': './asset/10.png',
             '11': './asset/J.png',
             '12': './asset/Q.png',
-            '13': './asset/K.png', }
-        self.color = pygame.image.load(cartes[str(carte[0])])
-        self.value = pygame.image.load(cartes[carte[1]])
+            '13': './asset/K.png',
+            'n': '/asset/vide.png'
+        }
+        str1=cartes[self.color]
 
-    def new_card(self):
+        self.image = pygame.image.load(cartes[self.color])
+        self.image.blit(pygame.image.load(cartes[self.value]), (0,0))
+
+
+    """def new_card(self):
         color = self.color
         value = self.value
-        return color, value
+        return color, value"""
 
 
 """self.rect2 = self.image2.get_rect()
