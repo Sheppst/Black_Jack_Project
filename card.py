@@ -6,10 +6,10 @@ screen = pygame.display.set_mode((1000, 700))
 
 class Card(pygame.sprite.Sprite):
     # Creates a card with color and value at screen position
-    def __init__(self, color, value, x=100, y=540):
+    def __init__(self, x=100, y=540, color='./asset/Vide.png', value='./asset/Vide.png'):
         super().__init__()
-        self.color = color
-        self.value = value
+        self.color = pygame.image.load(color)
+        self.value = pygame.image.load(value)
         self.x = x
         self.y = y
 
@@ -55,14 +55,13 @@ class Card(pygame.sprite.Sprite):
             '11': './asset/J.png',
             '12': './asset/Q.png',
             '13': './asset/K.png', }
-        self.color = cartes[str(carte[0])]
-        self.value = cartes[carte[1]]
+        self.color = pygame.image.load(cartes[str(carte[0])])
+        self.value = pygame.image.load(cartes[carte[1]])
 
     def new_card(self):
         color = self.color
         value = self.value
-        carte = color.copy()
-        carte.blit(value, (self.x, self.y))
+        return color, value
 
 
 """self.rect2 = self.image2.get_rect()

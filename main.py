@@ -61,12 +61,12 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
             if event.key == pygame.K_SPACE:
-                carte = Card(pygame.image.load('./asset/Vide.png'), pygame.image.load('./asset/Vide.png'), x, y)
+                carte = Card(x, y)
                 carte.init_card_drawing(cartes[0])
-                carte.new_card()
+                color, value = carte.new_card()
+                card = color.copy()
+                card.blit(value, (x, y))
                 x += 102
-
-            game.new_card()
 
         """elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
