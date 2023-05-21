@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 from black_jack import Black_Jack
 from card import Card
 
@@ -23,15 +24,26 @@ nom = ["C", "Ca", "T", "P"]
 for i in range(4):
     for j in range(1, 14):
         reserve.append((Card(nom[i], str(j))))
+
+
+def random_card(res):
+    a = randint(0, len(res)-1)
+    b = res[a]
+    del res[a]
+    return b
+
+
 hand = []
 game = Black_Jack()
+white = (255, 255, 255)
 running = True
 while running:
     # Display
-
+    font = pygame.font.SysFont("Arial", 36)
+    texte_surf = font.render(str(len(reserve)), True, white)
     screen.blit(background, (-100, 0))
     screen.blit(background1, (80, 500))
-    screen.blit(surf1, (5, 5))
+    screen.blit(texte_surf, (500, 5))
 
     """screen.blit(game.player.image, game.player.rect)"""
     # affichage des cartes de la main du joueur
@@ -45,8 +57,8 @@ while running:
         card.go_to_hand()
         print(card.rect.x)
     game.all_card.draw(screen)"""
-    """game.player.rect.x += game.all_card.rect.x"""
-    """print(game.player.rect.x)"""
+    """game.player.rect.x += game.all_card.rect.x
+    print(game.player.rect.x)"""
     """for player in game.all_players:
         b = 1
         a = 0
@@ -71,7 +83,7 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
             if event.key == pygame.K_SPACE:
-                carte = Card('P', '13', x, y)
+                carte = random_card(reserve)
                 hand.append(carte)
             elif event.key == pygame.K_b:
                 hand = []

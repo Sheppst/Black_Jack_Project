@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 """from player import Player"""
 
 screen = pygame.display.set_mode((1000, 700))
@@ -15,6 +16,9 @@ class Card(pygame.sprite.Sprite):
         self.y = y
 
         self.init_card_drawing()
+
+
+
 
     """def __init__(self, game):
         super().__init__()
@@ -42,8 +46,8 @@ class Card(pygame.sprite.Sprite):
     def init_card_drawing(self):
         cartes = {
             'C': './asset/Coeur.png',
-            'Ca': './asset/Coeur.png',
-            'T': './asset/Coeur.png',
+            'Ca': './asset/Carreau.png',
+            'T': './asset/Trèfles.png',
             'P': './asset/Pique.png',
             '1': './asset/1.png',
             '2': './asset/2.png',
