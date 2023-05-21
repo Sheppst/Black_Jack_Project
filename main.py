@@ -19,6 +19,7 @@ background1 = pygame.image.load(
     './asset/cadre blanc.png')
 surf1 = pygame.image.load(
     './asset/1.png')
+pressed = {}
 reserve = []
 nom = ["C", "Ca", "T", "P"]
 for i in range(4):
@@ -81,7 +82,7 @@ while running:
             pygame.quit()
             print("Fermeture du jeu")
         elif event.type == pygame.KEYDOWN:
-            game.pressed[event.key] = True
+            pressed[event.key] = True
             if event.key == pygame.K_SPACE:
                 carte = random_card(reserve)
                 hand.append(carte)

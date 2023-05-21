@@ -11,7 +11,7 @@ class Black_Jack:
         """self.player = Player(self)"""
         """self.all_players.add(self.player)"""
         self.all_card = pygame.sprite.Group()
-        self.pressed = {}
+        """self.pressed = {}"""
         """self.draw_card()"""
         self.position_carte = 0
         """self.know_player()"""
